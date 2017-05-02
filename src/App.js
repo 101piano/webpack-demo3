@@ -17,7 +17,8 @@ class App extends Component{
               .map((item,index)=>{//item指todoList里的每个元素
       return (
         <li key={index}>
-          <TodoItem todo={item}/>  
+          <TodoItem todo={item}
+            onToggle={this.toggle.bind(this)}/>  
         </li>
       )  
     });
@@ -52,6 +53,10 @@ class App extends Component{
       newTodo:'',
       tododList:this.state.todoList
     }); 
+  }
+  toggle(e,todo){
+    todo.status=todo.status==='completed' ? '':'completed';
+    this.setState(this.state);
   }
  
 }
